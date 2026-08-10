@@ -1,0 +1,194 @@
+/* ============================================
+   ROHANI GUIDANCE - ABOUT PAGE STYLES
+   ============================================ */
+
+.about-intro {
+    padding: 80px 0;
+}
+
+.about-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-intro-image {
+    position: relative;
+}
+
+.about-intro-image img {
+    border-radius: var(--radius-lg);
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    box-shadow: var(--shadow-md);
+}
+
+.about-intro-image .badge-circle {
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    width: 100px;
+    height: 100px;
+    background: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2;
+    box-shadow: var(--shadow-lg);
+}
+
+.about-intro-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.about-intro-content p {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+/* ============ MISSION & VISION ============ */
+.mission-vision {
+    background: var(--off-white);
+    padding: 80px 0;
+}
+
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.mission-card,
+.vision-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 45px 40px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.mission-card:hover,
+.vision-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.mv-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.mission-card .mv-icon {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.vision-card .mv-icon {
+    background: var(--secondary-light);
+    color: var(--secondary);
+}
+
+.mission-card h3,
+.vision-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.mission-card p,
+.vision-card p {
+    font-size: 15px;
+    color: var(--text-light);
+}
+
+/* ============ VALUES ============ */
+.values {
+    padding: 80px 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.value-card {
+    text-align: center;
+    padding: 35px 25px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.value-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.value-card .value-icon {
+    width: 55px;
+    height: 55px;
+    background: var(--primary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    color: var(--primary);
+    font-size: 26px;
+}
+
+.value-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.value-card p {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 992px) {
+    .about-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-intro-image {
+        order: -1;
+    }
+
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-intro-content h2 {
+        font-size: 1.8rem;
+    }
+}
