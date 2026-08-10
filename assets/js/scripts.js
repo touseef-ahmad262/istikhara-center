@@ -32,10 +32,33 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
+
     // ============ NAVBAR FUNCTIONALITY ============
     function initNavbar() {
         const navToggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
+
+        // Determine whether current page is inside /pages/
+        const isInPages = window.location.pathname.includes('/pages/');
+
+        // Set correct paths for navbar links
+        const pagePaths = {
+            home: isInPages ? '../index.html' : 'index.html',
+            about: isInPages ? 'about.html' : 'pages/about.html',
+            services: isInPages ? 'services.html' : 'pages/services.html',
+            problems: isInPages ? 'problems.html' : 'pages/problems.html',
+            faq: isInPages ? 'faq.html' : 'pages/faq.html',
+            contact: isInPages ? 'contact.html' : 'pages/contact.html'
+        };
+
+        // Apply correct paths to navbar links
+        document.querySelectorAll('.nav-links a[data-page], .navbar-brand[data-page]').forEach(link => {
+            const page = link.dataset.page;
+
+            if (page && pagePaths[page]) {
+                link.href = pagePaths[page];
+            }
+        });
 
         if (navToggle && navLinks) {
             navToggle.addEventListener('click', function () {
@@ -72,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setActiveNavLink();
     }
 
+
     function setActiveNavLink() {
         const currentPage = getCurrentPage();
         const navLinks = document.querySelectorAll('.nav-links a[data-page]');
@@ -81,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
 
     function getCurrentPage() {
         const path = window.location.pathname;
@@ -95,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (filename.includes('contact')) return 'contact';
         return '';
     }
+
 
     // ============ SCROLL REVEAL ANIMATIONS ============
     const revealElements = document.querySelectorAll('.reveal');
@@ -113,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         revealElements.forEach(el => el.classList.add('animate-fade-up'));
     }
+
 
     // ============ COUNTER ANIMATION ============
     const counters = document.querySelectorAll('.counter');
@@ -146,8 +173,10 @@ document.addEventListener('DOMContentLoaded', function () {
         counters.forEach(counter => counterObserver.observe(counter));
     }
 
+
     // ============ CONTACT FORM HANDLING ============
     const contactForm = document.getElementById('contactForm');
+
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -176,8 +205,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+
     function showFormMessage(message, type) {
         let messageEl = document.querySelector('.form-message');
+
         if (!messageEl) {
             messageEl = document.createElement('div');
             messageEl.className = 'form-message';
@@ -194,8 +225,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 5000);
     }
 
+
     // ============ TESTIMONIAL SLIDER ============
     const testimonialTrack = document.querySelector('.testimonial-track');
+
     if (testimonialTrack) {
         let currentIndex = 0;
         const slides = testimonialTrack.children;
@@ -234,6 +267,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+
     // ============ FAQ ACCORDION ============
     const faqItems = document.querySelectorAll('.faq-item');
 
@@ -249,6 +283,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 faqItems.forEach(otherItem => {
                     otherItem.classList.remove('active');
                     const otherAnswer = otherItem.querySelector('.faq-answer');
+
                     if (otherAnswer) {
                         otherAnswer.style.maxHeight = null;
                     }
@@ -263,8 +298,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+
     // ============ BACK TO TOP BUTTON ============
     const backToTop = document.getElementById('backToTop');
+
     if (backToTop) {
         window.addEventListener('scroll', function () {
             if (window.scrollY > 300) {
