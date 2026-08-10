@@ -1,0 +1,122 @@
+/* ============================================
+   ROHANI GUIDANCE - SERVICES PAGE STYLES
+   ============================================ */
+
+.services-overview {
+    padding: 80px 0;
+}
+
+.services-grid-large {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.service-card-large {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px 35px;
+    display: flex;
+    gap: 25px;
+    transition: var(--transition);
+}
+
+.service-card-large:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+}
+
+.service-card-large .service-icon-lg {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    background: var(--primary-light);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 32px;
+    transition: var(--transition);
+}
+
+.service-card-large:hover .service-icon-lg {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.service-card-large h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.service-card-large p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.service-card-large .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.service-card-large .service-link .material-symbols-outlined {
+    font-size: 18px;
+    transition: var(--transition);
+}
+
+.service-card-large .service-link:hover .material-symbols-outlined {
+    transform: translateX(5px);
+}
+
+/* ============ CTA BANNER ============ */
+.cta-banner {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: var(--radius-lg);
+    padding: 60px;
+    text-align: center;
+    margin-top: 50px;
+    color: var(--white);
+}
+
+.cta-banner h2 {
+    color: var(--white);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.cta-banner p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto 25px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 992px) {
+    .services-grid-large {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-card-large {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .cta-banner {
+        padding: 40px 25px;
+    }
+
+    .cta-banner h2 {
+        font-size: 1.6rem;
+    }
+}
